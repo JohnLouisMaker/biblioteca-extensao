@@ -1,6 +1,6 @@
 from app.core.database import engine, Base
 
-# Importando todas as tabelas para o SQLAlchemy reconhecer
+# Para testar o DB a IA me deu isso aqui:
 from app.models.associations import * 
 from app.models.autor import AutorModel
 from app.models.categoria import CategoriaModel
@@ -16,11 +16,11 @@ def init_db():
     print("Iniciando o script...")
     print("Conectando ao banco de dados no Supabase...")
     
-    # Cria as tabelas no banco de dados
+   
     Base.metadata.create_all(bind=engine)
     
     print("Tabelas criadas com sucesso! Vá checar o Supabase.")
 
-# Essa linha é obrigatória para o script rodar de fato
+
 if __name__ == "__main__":
     init_db()
