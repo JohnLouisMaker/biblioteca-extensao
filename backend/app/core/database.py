@@ -9,7 +9,7 @@ load_dotenv()
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 if not SQLALCHEMY_DATABASE_URL:
-    raise ValueError("⚠️ ERRO: A variável DATABASE_URL não foi encontrada no arquivo .env!")
+    raise ValueError("ERRO: A variável DATABASE_URL não foi encontrada no arquivo .env!")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_pre_ping=True)
 
