@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from app.models.livro import LivroModel
-from app.repositories import BaseRepository
+from app.repositories.base_repository import BaseRepository
 
 class LivroRepository(BaseRepository[LivroModel]):
     def __init__(self, db: Session):

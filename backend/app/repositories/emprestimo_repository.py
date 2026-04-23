@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from app.models.emprestimo import EmprestimoModel
-from app.repositories import BaseRepository
+from app.repositories.base_repository import BaseRepository
 from datetime import date
 
 class EmprestimoRepository(BaseRepository[EmprestimoModel]):
@@ -9,7 +9,7 @@ class EmprestimoRepository(BaseRepository[EmprestimoModel]):
 
     def get_atrasados(self) -> list[EmprestimoModel]:
         return self.db.query(self.model).filter(
-            self.model.data_devolucao == None,
+            self.model.data_devolucao is None,
             self.model.data_prevista < date.today()
         ).all()
 
